@@ -1,5 +1,10 @@
 # Devpost submission — Riffle
 
+- **Live prototype:** https://karan6705.github.io/riffle/
+- **Code:** https://github.com/karan6705/riffle
+- **Demo video file:** https://github.com/karan6705/riffle/releases/download/v1.0/riffle-demo.mp4 (captions: riffle-demo.srt)
+- **Thumbnail:** docs/thumbnail.png
+
 ## Tagline
 An explainable AI co-pilot for citizen stream science, turning a 5-minute stream check into One Health early warnings and FHIR-ready data.
 

@@ -4,6 +4,8 @@
 
 Built for the **IEEE OneAquaHealth Global Hackathon 2026**.
 
+**▶ Live demo:** https://karan6705.github.io/riffle/ · **🎬 Demo video (4 min, narrated + captions):** [riffle-demo.mp4](https://github.com/karan6705/riffle/releases/download/v1.0/riffle-demo.mp4)
+
 | | |
 |---|---|
 | **Primary track** | **Track 3 — AI-Supported Assessment** (explainable AI, validation checks, human-in-the-loop) |
@@ -145,6 +147,8 @@ npm test           # 28 unit tests for the domain core
 npm run build      # typecheck + production build to dist/
 npm run preview    # serve the production build
 ```
+
+The demo video is fully reproducible: `video/narration.json` holds the script, `video/record.cjs` drives the live app with Playwright in time with the narration, and `video/build.py` adds the voice-over and captions with ffmpeg.
 
 Deploy: push to GitHub and enable **Pages → GitHub Actions**; the included workflow builds and publishes `dist/`.
 
