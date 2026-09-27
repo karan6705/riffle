@@ -47,10 +47,11 @@ export function Home() {
 
   const verdict = useMemo(() => {
     if (!health) return { title: 'No recent check here yet', text: 'Be the first to check this stream — it takes about 5 minutes.' };
-    const contactRisk = health.advice.some((a) => (a.audience === 'people' || a.audience === 'pets') && a.tone === 'warning');
-    if (health.band === 'warning') return { title: 'Keep out of the water', text: 'Recent observations and weather point to a risk for people or pets.' };
-    if (contactRisk) return { title: 'Look, but don’t touch', text: 'A walk along the stream is fine — keep hands, faces and dogs out of the water for now.' };
+    const warn = (aud: string) => health.advice.some((a) => a.audience === aud && a.tone === 'warning');
+    if (warn('people')) return { title: 'Keep out of the water', text: 'Signs of sewage or overflow mean a health risk from touching the water today.' };
+    if (warn('pets')) return { title: 'Keep dogs out of the water', text: 'A walk along the bank is fine, but the water may be toxic for pets today.' };
     if (health.band === 'good') return { title: 'Looking healthy', text: `The last check found ${CATEGORIES[health.category].plain.toLowerCase()}.` };
+    if (health.band === 'warning') return { title: 'The stream is struggling', text: 'No obvious risk from a visit, but its wildlife is in trouble. Regular checks help track it.' };
     return { title: 'Enjoy, with care', text: 'Some signs of stress. Read the advice below before you or your dog go in.' };
   }, [health]);
 

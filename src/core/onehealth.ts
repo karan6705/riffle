@@ -84,7 +84,7 @@ export function oneHealth(a: Obs, weather: WeatherContext = {}): OneHealthScore 
     advice.push({
       audience: 'people',
       tone: 'good',
-      title: 'Enjoy the stream',
+      title: 'No sign of sewage',
       text: 'No obvious signs of sewage. As always, wash hands after touching stream water and do not drink it untreated.',
     });
   }

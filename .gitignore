@@ -4,3 +4,9 @@ dist
 *.log
 test-results
 .playwright-mcp
+video/raw
+video/*.mp3
+video/*.wav
+video/*.jpg
+video/*.mp4
+video/timeline.json

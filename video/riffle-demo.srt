@@ -1,0 +1,283 @@
+1
+00:00:00,823 --> 00:00:01,289
+Riffle.
+
+2
+00:00:01,339 --> 00:00:05,266
+An explainable AI co-pilot for citizen stream science.
+
+3
+00:00:05,316 --> 00:00:09,905
+Built for the IEEE OneAquaHealth Global Hackathon, track three:
+
+4
+00:00:09,955 --> 00:00:11,673
+AI-supported assessment.
+
+5
+00:00:12,427 --> 00:00:15,118
+Urban streams can turn dangerous within hours,
+
+6
+00:00:15,168 --> 00:00:17,919
+after a sewer overflow or a summer algal bloom.
+
+7
+00:00:17,969 --> 00:00:20,719
+Yet they are monitored only a few times a year.
+
+8
+00:00:20,769 --> 00:00:24,116
+Riffle lets any neighbour check a stream in five minutes,
+
+9
+00:00:24,166 --> 00:00:28,287
+with an AI co-pilot that double-checks with them, not instead of them.
+
+10
+00:00:28,337 --> 00:00:32,637
+And it turns every observation into One Health insight and early warning.
+
+11
+00:00:33,387 --> 00:00:36,904
+The home screen answers the question people actually have:
+
+12
+00:00:36,954 --> 00:00:38,256
+is my stream OK today?
+
+13
+00:00:38,306 --> 00:00:43,053
+At the Vale das Flores park outlet, the latest check found no animals in warm,
+
+14
+00:00:43,103 --> 00:00:46,497
+green water, so Riffle advises keeping dogs on the lead.
+
+15
+00:00:46,547 --> 00:00:49,141
+The three rings are the One Health reading:
+
+16
+00:00:49,191 --> 00:00:51,047
+ecosystem, people, and animals.
+
+17
+00:00:51,798 --> 00:00:52,841
+Let's do a check.
+
+18
+00:00:52,891 --> 00:00:56,571
+Everything is plain language and pictures, with no jargon.
+
+19
+00:00:56,621 --> 00:01:00,044
+The water here is murky and grey, with a sewage smell.
+
+20
+00:01:00,094 --> 00:01:02,038
+Then a quick look at the banks:
+
+21
+00:01:02,088 --> 00:01:06,218
+plants, shade, litter, and any pipes discharging into the stream.
+
+22
+00:01:06,970 --> 00:01:07,962
+Now the bug hunt.
+
+23
+00:01:08,012 --> 00:01:10,783
+Riffle uses the miniSASS biomonitoring method.
+
+24
+00:01:10,833 --> 00:01:15,687
+Every animal group has a how-to-tell guide with its key identification features,
+
+25
+00:01:15,737 --> 00:01:18,814
+and there is a built-in five-minute sampling timer.
+
+26
+00:01:18,864 --> 00:01:23,719
+I'll record stoneflies and flat mayflies, which are very sensitive to pollution,
+
+27
+00:01:23,769 --> 00:01:24,700
+plus some worms.
+
+28
+00:01:25,452 --> 00:01:27,099
+This is the heart of Riffle.
+
+29
+00:01:27,149 --> 00:01:32,129
+Only now, after I've recorded my animals, does the co-pilot reveal its expectation,
+
+30
+00:01:32,179 --> 00:01:33,825
+so it can't bias what I see.
+
+31
+00:01:33,875 --> 00:01:38,734
+A transparent model predicts the score a stream that looks like this should have,
+
+32
+00:01:38,784 --> 00:01:41,522
+and shows exactly which observations drove it.
+
+33
+00:01:41,572 --> 00:01:42,976
+It raises two questions:
+
+34
+00:01:43,026 --> 00:01:46,188
+an expert rule says stoneflies rarely survive sewage,
+
+35
+00:01:46,238 --> 00:01:49,642
+and the model says my animals score higher than expected.
+
+36
+00:01:50,393 --> 00:01:51,723
+I'm the scientist here.
+
+37
+00:01:51,773 --> 00:01:54,603
+I can go back and check, or confirm with a note.
+
+38
+00:01:54,653 --> 00:01:56,643
+I counted two tails, so I confirm.
+
+39
+00:01:56,693 --> 00:02:00,963
+Because the question stays open, the record is published as preliminary,
+
+40
+00:02:01,013 --> 00:02:02,583
+and sent to a local expert.
+
+41
+00:02:03,339 --> 00:02:06,436
+I get a One Health reading with practical advice,
+
+42
+00:02:06,486 --> 00:02:10,418
+experience points that reward careful science, and new badges.
+
+43
+00:02:10,468 --> 00:02:13,565
+And the same check becomes an HL7 FHIR R4 bundle:
+
+44
+00:02:13,615 --> 00:02:17,033
+observations, the co-pilot's flags as detected issues,
+
+45
+00:02:17,083 --> 00:02:22,363
+and provenance recording what the citizen, the AI, and the expert each contributed.
+
+46
+00:02:22,413 --> 00:02:23,519
+It validates live.
+
+47
+00:02:24,272 --> 00:02:29,773
+In the expert review queue, experts see the citizen's note next to the model's evidence,
+
+48
+00:02:29,823 --> 00:02:31,791
+and verify or reject in seconds.
+
+49
+00:02:31,841 --> 00:02:35,954
+Riffle also tracks how often flagged records turn out to be valid.
+
+50
+00:02:36,004 --> 00:02:38,162
+That is how we audit the AI itself.
+
+51
+00:02:38,916 --> 00:02:43,449
+For cities, the map shows stream health, or seven-day risk, across Coimbra,
+
+52
+00:02:43,499 --> 00:02:46,198
+and ranks what is stressing the streams most:
+
+53
+00:02:46,248 --> 00:02:48,276
+a to-do list for the municipality.
+
+54
+00:02:49,029 --> 00:02:51,563
+On the urban reach of the Coselhas stream,
+
+55
+00:02:51,613 --> 00:02:55,377
+the trend shows the decline since construction began upstream.
+
+56
+00:02:55,427 --> 00:02:59,990
+This presence map shows sensitive insects disappearing, quarter by quarter:
+
+57
+00:03:00,040 --> 00:03:01,959
+an early warning sign in itself.
+
+58
+00:03:02,713 --> 00:03:07,881
+Early warning combines the live Open-Meteo forecast with each site's vulnerability and
+
+59
+00:03:07,931 --> 00:03:12,735
+the latest citizen observations, covering sewer overflow, heat and algal blooms,
+
+60
+00:03:12,785 --> 00:03:13,766
+and flash floods.
+
+61
+00:03:13,816 --> 00:03:16,375
+Here is the storm and heatwave stress test,
+
+62
+00:03:16,425 --> 00:03:20,683
+with the affected sites and concrete actions for people and pet owners.
+
+63
+00:03:21,436 --> 00:03:26,808
+To build awareness, a storytelling module follows one raindrop from city rooftops to a
+
+64
+00:03:26,858 --> 00:03:31,536
+poisoned dog, and a glossary translates scientific jargon into plain words.
+
+65
+00:03:32,307 --> 00:03:34,472
+Finally, open data and standards:
+
+66
+00:03:34,522 --> 00:03:37,358
+bulk FHIR and CSV export, the architecture,
+
+67
+00:03:37,408 --> 00:03:42,930
+and a model card that documents exactly how the AI works, and where its limits are.
+
+68
+00:03:42,980 --> 00:03:47,427
+Everything runs on the device, works offline, and needs no account.
+
+69
+00:03:48,181 --> 00:03:48,756
+Riffle.
+
+70
+00:03:48,806 --> 00:03:50,899
+From streams to systems.
+
+71
+00:03:50,949 --> 00:03:55,811
+Try it now at karan6705 dot github dot io slash riffle.
