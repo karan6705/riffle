@@ -1,0 +1,232 @@
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+
+/* Field-notebook palette: warm paper, river ink, one kingfisher accent. */
+:root {
+  --paper: #f4efe4;
+  --paper-2: #ebe4d4;
+  --card: #fbf8f1;
+  --ink: #0f2e2d;
+  --ink-2: #3d5654;
+  --ink-3: #6f817e;
+  --line: #d9d0bd;
+  --river: #0f3b3a;
+  --river-2: #1d5c58;
+  --shallows: #a9d3c9;
+  --kingfisher: #d9622b;
+  --kingfisher-soft: #f6d7c3;
+  --good: #1f8a70;
+  --caution: #c98a12;
+  --warning: #c8423b;
+  --good-soft: #d7ecdf;
+  --caution-soft: #f6e6c0;
+  --warning-soft: #f5d3cf;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0d1c1c;
+    --paper-2: #172e2c;
+    --card: #142826;
+    --ink: #ece6d8;
+    --ink-2: #bcc7c2;
+    --ink-3: #8a9c97;
+    --line: #2a4240;
+    --river: #a9d3c9;
+    --river-2: #7fb8ac;
+    --shallows: #1f4a45;
+    --kingfisher: #f08a55;
+    --kingfisher-soft: #4a2a1a;
+    --good: #5cc59f;
+    --caution: #e8b54a;
+    --warning: #f07a70;
+    --good-soft: #173a2f;
+    --caution-soft: #3b3017;
+    --warning-soft: #3f1d1a;
+    color-scheme: dark;
+  }
+}
+
+@theme {
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-river: var(--river);
+  --color-river-2: var(--river-2);
+  --color-shallows: var(--shallows);
+  --color-kingfisher: var(--kingfisher);
+  --color-kingfisher-soft: var(--kingfisher-soft);
+  --color-good: var(--good);
+  --color-caution: var(--caution);
+  --color-warning: var(--warning);
+  --color-good-soft: var(--good-soft);
+  --color-caution-soft: var(--caution-soft);
+  --color-warning-soft: var(--warning-soft);
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle paper grain. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+.font-display {
+  font-variation-settings: 'SOFT' 100;
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--kingfisher);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@layer components {
+/* Hand-ruled divider used between notebook sections. */
+.rule {
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 10px);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.7rem 1.25rem;
+  font-weight: 600;
+  transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+.btn-primary {
+  background: var(--river);
+  color: var(--paper);
+  box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--river) 70%, transparent);
+}
+.btn-primary:hover {
+  background: var(--river-2);
+}
+.btn-accent {
+  background: var(--kingfisher);
+  color: #fff;
+}
+.btn-ghost {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+}
+.btn-ghost:hover {
+  background: var(--paper-2);
+}
+.btn:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* Choice tiles in the guided assessment. */
+.tile {
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  border-radius: 16px;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+.tile:hover {
+  border-color: var(--river-2);
+}
+.tile[aria-pressed='true'],
+.tile[aria-checked='true'] {
+  border-color: var(--river);
+  background: color-mix(in srgb, var(--shallows) 35%, var(--card));
+  box-shadow: inset 0 0 0 1px var(--river);
+}
+}
+
+/* Signature: slow flowing contour lines. */
+@keyframes flow {
+  to {
+    stroke-dashoffset: -400;
+  }
+}
+.flowline {
+  stroke-dasharray: 220 180;
+  animation: flow 14s linear infinite;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flowline,
+  .rise {
+    animation: none;
+  }
+}
+
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: var(--paper-2);
+  border-radius: 18px;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 14px;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

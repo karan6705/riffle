@@ -1,0 +1,9 @@
+{
+  "name": "Riffle — citizen stream science co-pilot",
+  "short_name": "Riffle",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4efe4",
+  "theme_color": "#0f3b3a",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
